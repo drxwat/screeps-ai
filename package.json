@@ -1,0 +1,28 @@
+{
+  "name": "screeps-agents",
+  "version": "1.0.0",
+  "description": "AI bots for screeps game",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-typings": "typings install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drxwat/screeps-ai.git"
+  },
+  "keywords": [
+    "screeps",
+    "ai",
+    "bots"
+  ],
+  "author": "drxwat",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/drxwat/screeps-ai/issues"
+  },
+  "homepage": "https://github.com/drxwat/screeps-ai#readme",
+  "devDependencies": {
+    "typings": "^2.1.1"
+  }
+}

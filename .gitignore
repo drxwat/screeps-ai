@@ -1,3 +1,4 @@
 .idea
 .vscode
-ScreepsAutocomplete
+node_modules
+typings

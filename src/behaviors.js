@@ -41,9 +41,9 @@ function executeBehavior() {
 function getBehaviorByName(behaviorName) {
     switch (behaviorName){
         case BEHAVIORS.BEHAVIOR_HARVESTER:
-            return harvesterBehavior.run;
+            return harvesterBehavior;
         case BEHAVIORS.BEHAVIOR_UPGRADER:
-            return upgraderBehavior.run;
+            return upgraderBehavior;
         default:
             return undefined
     }

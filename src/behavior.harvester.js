@@ -16,4 +16,4 @@ function harvesterBehavior() {
 }
 
 
-module.exports.run = harvesterBehavior;
+module.exports = harvesterBehavior;
