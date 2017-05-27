@@ -1,14 +1,24 @@
 /**
  * Created by drxwat on 26.05.17.
  */
+const actions = require('actions')
 
-var harvesterBehavior = require('behavior.harvester');
-var upgraderBehavior = require('behavior.upgrader');
-
-const BEHAVIORS = {
-    BEHAVIOR_HARVESTER : 'harvester',
-    BEHAVIOR_UPGRADER : 'upgrader'
-};
+const BEHAVIOR = {
+    MINER: {
+        name: 'miner',
+        actions: [
+            actions.ACTION.MINE_ENERGY,
+            actions.ACTION.DELIVER_ENERGY_TO_STORAGE
+        ]
+    },
+    UPGRADER: {
+        name: 'upgrader',
+        actions: [
+            actions.ACTION.MINE_ENERGY,
+            actions.ACTION.UPGRAGE_CONTROLLER
+        ]
+    }
+}
 
 
 /**
@@ -16,9 +26,9 @@ const BEHAVIORS = {
  * @this {Creep} creep
  * @param {BEHAVIOR_HARVESTER|BEHAVIOR_UPGRADER}behaviorName
  */
-function attachBehavior(behaviorName){
-    if(this.memory.behavior !== behaviorName){
-        console.log("I'm " + this.name + " and now I'm a " + behaviorName + '.');
+function attachBehavior(behaviorName) {
+    if (this.memory.behavior !== behaviorName) {
+        console.log(`I'm ${this.name} and now I'm a ${behaviorName}.`)
         this.memory.behavior = behaviorName
     }
 }
@@ -28,31 +38,14 @@ function attachBehavior(behaviorName){
  * @this {Creep} creep
  */
 function executeBehavior() {
-    var behavior = getBehaviorByName(this.memory.behavior);
-    behavior.call(this);
+    // Слейдуй тому, что написано в Arcitecture.md
 }
 
-/**
- * Just helper
- * @private
- * @param {BEHAVIOR_HARVESTER|BEHAVIOR_UPGRADER} behaviorName
- * @returns {harvesterBehavior|upgraderBehavior|undefined}
- */
-function getBehaviorByName(behaviorName) {
-    switch (behaviorName){
-        case BEHAVIORS.BEHAVIOR_HARVESTER:
-            return harvesterBehavior;
-        case BEHAVIORS.BEHAVIOR_UPGRADER:
-            return upgraderBehavior;
-        default:
-            return undefined
-    }
-}
 
 module.exports = {
-    names: BEHAVIORS,
+    names: BEHAVIOR,
     attachBehavior: attachBehavior,
     executeBehavior: executeBehavior
-};
+}
 
 
