@@ -1,25 +1,21 @@
-/**
- * Created by drxwat on 26.05.17.
- */
-
-var behaviors = require('behaviors');
+var behavior = require('behaviors')
 
 /**
  * Pushes all passed creeps harvest energy
  * @param {Creep[]} creeps
  */
-function allHarvesters(creeps) {
+function allMiners(creeps) {
     for (let i in creeps){
-        let creep = creeps[i];
-        if(creep.memory.behavior != behaviors.names.BEHAVIOR_HARVESTER){
-            behaviors.attachBehavior.call(creep, behaviors.names.BEHAVIOR_HARVESTER)
+        let creep = creeps[i]
+        if(creep.memory.behavior != behavior.names.MINER.name){
+            behavior.attachBehavior.call(creep, behavior.names.MINER.name)
         }
-        behaviors.executeBehavior.call(creep)
+        behavior.executeBehavior.call(creep)
     }
 }
 
 // Планирует и распределяет поведения между группами крипов
 // Имеет несколько режимов. Разные для разных групп крипов
 module.exports = {
-    allHarvesters: allHarvesters
-};
+    allMiners: allMiners
+}

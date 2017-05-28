@@ -15,7 +15,8 @@
         "FIND_MY_SPAWNS": false,
         "ERR_NOT_IN_RANGE": false,
         "RESOURCE_ENERGY": false,
-        "OK": false
+        "OK": false,
+        "_": false
     },
     "rules": {
         "linebreak-style": [

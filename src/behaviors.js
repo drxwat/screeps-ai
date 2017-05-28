@@ -1,7 +1,5 @@
-/**
- * Created by drxwat on 26.05.17.
- */
 const actions = require('actions')
+
 
 const BEHAVIOR = {
     MINER: {
@@ -38,7 +36,14 @@ function attachBehavior(behaviorName) {
  * @this {Creep} creep
  */
 function executeBehavior() {
-    // Слейдуй тому, что написано в Arcitecture.md
+    let behavior = _.find(BEHAVIOR, behavior => behavior.name === this.memory.behavior)
+    for(let i in behavior.actions){
+        let action = actions.MAPPINGS[behavior.actions[i]]
+        if(action.call(this) !== actions.RESULT.FAIL){
+            return 1
+        }
+    }
+    console.log(`No one action can be executed for ${this.name}`)
 }
 
 
@@ -47,5 +52,3 @@ module.exports = {
     attachBehavior: attachBehavior,
     executeBehavior: executeBehavior
 }
-
-
